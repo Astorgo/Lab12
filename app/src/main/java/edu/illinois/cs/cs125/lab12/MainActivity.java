@@ -3,6 +3,8 @@ package edu.illinois.cs.cs125.lab12;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +34,13 @@ public final class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       Button ref = findViewById(R.id.littytitty);
+       ref.setOnClickListener(new View.OnClickListener() {
+           public void onClick(final View v) {
+               Log.d(TAG, "Get The Weather");
+               startAPICall();
+           }
+           });
 
         // Set up the queue for our API requests
         requestQueue = Volley.newRequestQueue(this);
